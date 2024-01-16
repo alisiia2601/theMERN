@@ -4,6 +4,11 @@ import app from "./app";
 
 const mongoURL = process.env.DB_URL;
 
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
+
 if (!mongoURL) throw Error("Missing db url");
 
 mongoose.connect(mongoURL).then(() => {
