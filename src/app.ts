@@ -20,6 +20,10 @@ app.post("/login", authController.logIn);
 app.post("/token/refresh", authController.refreshJWT);
 app.get("/profile", validateToken, authController.profile);
 
+
+app.put("/posts/:id", validateToken, postsController.updatePost)
+app.delete('/posts/:postId', validateToken, postsController.deletePost);
+
 app.post(
   "/posts",
   validateToken,
